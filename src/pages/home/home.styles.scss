@@ -1,0 +1,31 @@
+.home {
+  width: 70%;
+  margin: 40px auto;
+  .no-data {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+  }
+  .title {
+    text-align: center;
+    background-image: linear-gradient(
+      to bottom,
+      #0a1931,
+      #0a1931,
+      #0a1931,
+      #185adb
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 4rem;
+  }
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+}

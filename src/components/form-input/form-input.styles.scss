@@ -1,0 +1,23 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  .form-input {
+    width: 50%;
+    height: 40px;
+    border: none;
+    font-size: 1.4rem;
+    padding: 10px;
+    border-radius: 20px;
+    &:focus {
+      outline: none;
+    }
+  }
+  .label {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    color: #77acf1;
+  }
+}

@@ -1,0 +1,67 @@
+@mixin fonts {
+  font-size: 1.5rem;
+}
+.card {
+  position: relative;
+  height: 250px;
+  width: 500px;
+  margin: 30px;
+  background-color: #171717;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1);
+  transition: 0.2s ease-out;
+  z-index: 1;
+  &:hover {
+    box-shadow: 6px 6px 5px 5px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+    .email {
+      color: #77acf1;
+    }
+  }
+  .name {
+    color: #0028ff;
+    font-size: 3rem;
+  }
+  .comun {
+    margin: 10px;
+  }
+  .grade-age {
+    @include fonts();
+    color: #f2a51a;
+    span {
+      padding: 15px;
+      color: #77acf1;
+      @include fonts();
+    }
+  }
+  .email {
+    position: absolute;
+    transform: rotate(-90deg);
+    left: -50px;
+    font-size: 1.2rem;
+    color: #00204a;
+    transition: 0.2s ease-out;
+  }
+  .icon {
+    position: absolute;
+    top: 80%;
+    right: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: red;
+    color: #171717;
+    transition: 0.2s ease-out;
+    &:hover {
+      background-color: #23374d;
+    }
+  }
+}

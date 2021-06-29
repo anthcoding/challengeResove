@@ -1,0 +1,49 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .form-container {
+    text-align: center;
+    height: 800px;
+    width: 700px;
+    background-color: #171717;
+    border-radius: 20px;
+    .modal-title {
+      font-size: 3rem;
+      margin: 40px;
+      color: #0028ff;
+    }
+  }
+  .buttons-container {
+    margin-top: 25px;
+    width: 100%;
+    .submit-button {
+      background-color: #0028ff;
+      font-size: 1.5rem;
+      border-radius: 20px;
+      padding: 5px 10px;
+      font-family: "Roboto", sans-serif;
+      border: none;
+      cursor: pointer;
+      width: 100px;
+    }
+    .cancel-button {
+      width: 100px;
+      background-color: red;
+      font-size: 1.5rem;
+      border-radius: 20px;
+      padding: 5px 10px;
+      font-family: "Roboto", sans-serif;
+      border: none;
+      cursor: pointer;
+      margin-left: 100px;
+    }
+  }
+}
