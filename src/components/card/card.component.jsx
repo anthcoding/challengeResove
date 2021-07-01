@@ -4,11 +4,13 @@ import "./card.styles.scss";
 //ICONS
 import { VscChromeClose } from "react-icons/vsc";
 //REDUX
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { deleteStudent } from "../../redux/students/student.actions.js";
 
-const Card = ({ student, deleteStudent }) => {
+const Card = ({ student }) => {
   const { firstName, lastName, age, grade, email } = student;
+  const dispatch = useDispatch();
+
   return (
     <div className="card">
       <div className="name  comun">
@@ -21,15 +23,11 @@ const Card = ({ student, deleteStudent }) => {
         <span className="span">Grade:</span> {grade}
       </div>
       <div className="email">{email}</div>
-      <div className="icon" onClick={() => deleteStudent(student)}>
+      <div className="icon" onClick={() => dispatch(deleteStudent(student))}>
         <VscChromeClose />
       </div>
     </div>
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  deleteStudent: (student) => dispatch(deleteStudent(student)),
-});
-
-export default connect(null, mapDispatchToProps)(Card);
+export default Card;

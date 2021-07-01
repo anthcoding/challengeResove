@@ -2,14 +2,14 @@ import React from "react";
 //STYLES
 import "./home.styles.scss";
 //REDUX
-import { connect } from "react-redux";
-
+import { useSelector } from "react-redux";
 //COMPONENTS
 import Card from "../../components/card/card.component";
 import AddButton from "../../components/add-button/add-button.component";
 import Modal from "../../components/modal/modal.component";
 
-const HomePage = ({ students }) => {
+const HomePage = () => {
+  const students = useSelector((state) => state.student.students);
   console.log(students);
   return (
     <div className="home">
@@ -29,8 +29,4 @@ const HomePage = ({ students }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  students: state.student.students,
-});
-
-export default connect(mapStateToProps)(HomePage);
+export default HomePage;

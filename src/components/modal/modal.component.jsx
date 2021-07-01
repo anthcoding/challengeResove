@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 //STYLES
 import "./modal.styles.scss";
 //COMPONENTS
 import FormInput from "../form-input/form-input.component";
 //REDUX
-import { addStudent, toggleHidden } from "../../redux/students/student.actions";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleHidden, addStudent } from "../../redux/students/student.actions";
 
-const Modal = ({ addStudent, hidden, toggleHidden }) => {
+const Modal = () => {
   const [credentials, setCredentials] = useState({
     firstName: "",
     lastName: "",
@@ -15,8 +15,10 @@ const Modal = ({ addStudent, hidden, toggleHidden }) => {
     grade: "",
     email: "",
   });
-
   const { firstName, lastName, age, grade, email } = credentials;
+
+  const hidden = useSelector((state) => state.student.hidden);
+  const dispatch = useDispatch();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -25,11 +27,12 @@ const Modal = ({ addStudent, hidden, toggleHidden }) => {
   };
 
   console.log(credentials);
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    addStudent(credentials);
-    toggleHidden();
+    dispatch(toggleHidden());
+    dispatch(addStudent(credentials));
 
     setCredentials({
       firstName: "",
@@ -102,7 +105,7 @@ const Modal = ({ addStudent, hidden, toggleHidden }) => {
               <button
                 className="cancel-button"
                 type="button"
-                onClick={toggleHidden}
+                onClick={() => dispatch(toggleHidden())}
               >
                 Cancel
               </button>
@@ -114,13 +117,4 @@ const Modal = ({ addStudent, hidden, toggleHidden }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  hidden: state.student.hidden,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  addStudent: (item) => dispatch(addStudent(item)),
-  toggleHidden: () => dispatch(toggleHidden()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+export default Modal;
